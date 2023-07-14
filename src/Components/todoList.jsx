@@ -2,11 +2,7 @@
 export default function TodoList({todos,changeTodoStatus}){
     
     
-    /*const handleClick = () => {
-        const newTodos = [ ... todos];
-        newTodos.push("New todo");
-        setTodos(newTodos);
-    }*/
+    
 
     return(
         <section>

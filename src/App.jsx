@@ -6,17 +6,17 @@ import TodoList from './Components/todoList';
 function App() {
   const initialTodos = [
     {
-        id: "1",
+        id: "0",
         name: 'Apprendre React',
         done: false
     },
     {
-        id:'2',
+        id:'1',
         name: 'Faire la vaisselle',
         done: true
     },
     {
-        id:'3',
+        id:'2',
         name: 'courir',
         done: true
     }
@@ -31,12 +31,23 @@ function App() {
         return todo;
     });
    setTodos(newTodos);
-}
+  }
+
+  const AddNewTodo =(newtTodoName) => {
+    const newTodo = {
+      id: todos.length.toString(),
+      name: newtTodoName,
+      done: false
+    }
+    const newTodos = [... todos];
+    newTodos.push(newTodo);
+    setTodos(newTodos);
+  }
   return (
     <main className="container">
       <Header />
       
-      <AddTodo/>
+      <AddTodo AddNewTodo={AddNewTodo} />
       
       <TodoList todos={todos} changeTodoStatus={changeTodoStatus}/>
     </main>
