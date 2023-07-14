@@ -1,8 +1,11 @@
+
 export default function AddTodo() {
+    
     return (
-        <form action="#" method='POST'>
+        
+        <form  method='POST'>
             <input type="text" name='newTodo' placeholder='Create new todo' />
-            <button type="submit">Create</button>
+            <button type="submit" >Create</button>
         </form>
     )
 }
