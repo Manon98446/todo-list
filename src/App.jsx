@@ -1,11 +1,17 @@
-import { useState } from 'react'
-
+import React,{ useState } from 'react'
+import AddTodo from './Components/addTodo';
+import Header from './Components/header';
+import TodoList from './Components/todoList';
 
 function App() {
   
   return (
     <main className="container">
-      <h1>Hello, world!</h1>
+      <Header />
+      
+      <AddTodo/>
+      
+      <TodoList/>
     </main>
   )
 }
