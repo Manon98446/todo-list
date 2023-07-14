@@ -1,4 +1,4 @@
-import React,{ useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import AddTodo from './Components/addTodo';
 import Header from './Components/header';
 import TodoList from './Components/todoList';
@@ -7,7 +7,7 @@ import {v4 as uuidv4} from "uuid";
 function App() {
 
   const LSKEY = "MyTodoApp"; //clef de notre application
-  const initTodos = [
+  /*const initTodos = [
     {
         id: uuidv4(),
         name: 'Apprendre React',
@@ -23,9 +23,10 @@ function App() {
         name: 'courir',
         done: true
     }
-  ];
+  ];*/
   const [todos, setTodos] = useState([]); //state permet de modifier le DOM en fonction du state, ce qu'une simple variable (let) ne permet pas, le array pourrait etre modifié par let mais ce ne serait pas affiché sur l'interface de l'utilisateur
   const [firstLoad, setFirstLoad] = useState(true);
+  
   const changeTodoStatus = (id) => {
     const newTodos = todos.map((todo) => {
         if(todo.id === id){
@@ -59,14 +60,21 @@ function App() {
     const initialTodos = JSON.parse(window.localStorage.getItem(LSKEY + ".todos"))
     setTodos(initialTodos)
   }, []);
-
+  
+  const handleDeleteClick = (id) =>{
+    const newTodos = todos.filter((todo) => {
+      if (todo.id === id) return false;
+        return true;
+    });
+    setTodos(newTodos);
+  }
   return (
     <main className="container">
       <Header />
       
       <AddTodo AddNewTodo={AddNewTodo} />
       
-      <TodoList todos={todos} changeTodoStatus={changeTodoStatus}/>
+      <TodoList todos={todos} changeTodoStatus={changeTodoStatus} handleDeleteClick={handleDeleteClick}/>
     </main>
   )
 }

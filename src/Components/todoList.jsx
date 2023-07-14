@@ -1,5 +1,5 @@
 
-export default function TodoList({todos,changeTodoStatus}){
+export default function TodoList({todos,changeTodoStatus, handleDeleteClick}){
     
     
     
@@ -16,6 +16,7 @@ export default function TodoList({todos,changeTodoStatus}){
                         checked={todo.done} 
                         onChange={() => {changeTodoStatus(todo.id)}}/> {/*on appelle une fonction vide (sans paramètres) pour ne pas appeler la fontion change Todostatus (avec paramètres) de facon automatique, quand on appelle la fonction vide, elle appelle la fonction avec parametre*/}
                         {todo.name}
+                        <button onClick={ () => {handleDeleteClick(todo.id)}}>Delete</button>
                     </li>)
                 )}
             </ul>
