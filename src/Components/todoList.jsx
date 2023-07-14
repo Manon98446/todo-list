@@ -8,7 +8,7 @@ export default function TodoList({todos,changeTodoStatus, handleDeleteClick}){
         <section>
             <h2>Todos </h2>
             <ul>
-                {todos.map((todo, index) => (
+                {todos && todos.map((todo, index) => ( //conditional rendering react
                     <li key={index}>
                         <input 
                         type="checkbox" 
